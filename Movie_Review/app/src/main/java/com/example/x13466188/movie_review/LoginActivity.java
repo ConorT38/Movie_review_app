@@ -20,6 +20,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -80,6 +81,19 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                     return true;
                 }
                 return false;
+            }
+        });
+
+        Button mRegBtn = (Button) findViewById(R.id.RegBtn);
+        mRegBtn.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    Intent RegIntent = new Intent(LoginActivity.this, RegisterActivity.class);
+                    startActivity(RegIntent);
+                }catch (Exception e){
+                    System.out.println(e);
+                }
             }
         });
 
